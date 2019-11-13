@@ -2,7 +2,13 @@
 <h2><%= @restaurant.category %></h2>
 <h3><%= @restaurant.address %></h3>
 <h4><%= @restaurant.phone_number %></h4>
+<h2>REVIEWS</h2>
+<% @restaurant.reviews.each do |review|%>
+<p><%= "🌟" * review.rating %></p>
+<h5><%= review.content %></h5>
+<% end %>
 
 <%= link_to "Edit", edit_restaurant_path(@restaurant), class: "btn btn-primary"%>
+<%= link_to "Review this Restaurant", new_restaurant_review_path(@restaurant), class: "btn btn-primary"%>
 <%= link_to "Back to list", restaurants_path, class: "btn btn-primary"%>
 <%= link_to "Delete", restaurant_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary"%>
