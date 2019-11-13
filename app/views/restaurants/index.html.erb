@@ -1,0 +1,14 @@
+<div class="container">
+<h1 class="mx-auto mt-5">RESTAURANTS</h1>
+<ul>
+<% @restaurants.each do |restaurant| %>
+  <div class="list-inline">
+  <li class="list-inline-item"><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+  <li class="list-inline-item"><%= restaurant.address %></li>
+  <li class="list-inline-item"><%= restaurant.category %></li>
+  <li class="list-inline-item"><%= restaurant.phone_number %></li>
+  </div>
+<% end %>
+</ul>
+<%= link_to "Add Restaurant", new_restaurant_path %>
+</div>
